@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('departments', 'DepartmentsController@index');
+Route::get('departments-staffes', 'DepartmentsController@indexWithStaffes');
 Route::get('departments/{department}', 'DepartmentsController@item');
 Route::post('departments', 'DepartmentsController@create');
 Route::put('departments/{department}', 'DepartmentsController@update');
@@ -28,3 +29,5 @@ Route::get('staffes/{staff}', 'StaffesController@item');
 Route::post('staffes', 'StaffesController@create');
 Route::put('staffes/{staff}', 'StaffesController@update');
 Route::delete('staffes/{staff}', 'StaffesController@delete');
+
+Route::get('handbook/gender', 'HandbookController@gender');

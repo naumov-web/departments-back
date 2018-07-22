@@ -16,4 +16,20 @@ class Department extends Model
     protected $fillable = [
         'name'
     ];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
+    /**
+     * Get relation to staffes
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function staffes()
+    {
+        return $this->belongsToMany('App\Staff', 'department_staffes', 'department_id', 'staff_id');
+    }
+
 }
